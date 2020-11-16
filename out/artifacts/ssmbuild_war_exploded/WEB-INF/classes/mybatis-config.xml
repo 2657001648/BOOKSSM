@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--核心配置文件-->
+<configuration>
+
+    <!--1. 配置数据源，交给Spring去做-->
+
+    <!--补充：添加日志功能-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--2. 给pojo包的类起别名-->
+    <typeAliases>
+        <package name="com.kliurat.pojo"/>
+    </typeAliases>
+
+    <plugins>
+        <!-- com.github.pagehelper为PageHelper类所在包名 -->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+
+        </plugin>
+    </plugins>
+
+    <!--3. 映射mapper配置文件-->
+    <mappers>
+        <mapper class="com.kliurat.dao.BookMapper"/>
+        <mapper class="com.kliurat.dao.UserMapper"/>
+        <mapper class="com.kliurat.dao.BookTypeMapper"/>
+        <mapper class="com.kliurat.dao.HistoryMapper"/>
+    </mappers>
+
+</configuration>
